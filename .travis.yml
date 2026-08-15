@@ -8,5 +8,5 @@ before_install:
 
 script:
   # -- --coverage ensures test exits after running and not just wait for input interaction
-  # for the above, use -e CI=true instead of -- --coverage
+  # for the above, use -e CI=true instead of -- --coverage for travis
   - docker run -e CI=true emma/docker-react-v2 npm run test
