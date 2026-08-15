@@ -1,0 +1,10 @@
+FROM node:lts-alpine
+
+WORKDIR "/app"
+COPY package.json .
+RUN npm install
+
+COPY . .
+
+# alternative version: CMD ["npm", "run", "start"]
+CMD ["sh", "-c", "PORT=3001 npm start"]
