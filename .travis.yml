@@ -10,3 +10,15 @@ script:
   # -- --coverage ensures test exits after running and not just wait for input interaction
   # for the above, use -e CI=true instead of -- --coverage for travis
   - docker run -e CI=true emma/docker-react-v2 npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: 'us-east-2'
+  app: 'frontend'
+  env: 'Frontend-env'
+  bucket_name: 'elasticbeanstalk-us-east-2-824508926069'
+  bucket_path: 'frontend'
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: '$AWS_SECRET_KEY'
